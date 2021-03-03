@@ -6,7 +6,7 @@ import time
 import sys
 import urllib.request
 import re
-from multiprocessing.dummy import Pool
+# from multiprocessing.dummy import Pool
 
 import random
 
@@ -77,7 +77,7 @@ class videoDownloader:
         else:
             if re.search(r"youtu\.?be", inst["url"]):
                 status = os.system(
-                    f"youtube-dl \"{inst['url']}\" -o \"{saveto}.yt.%(ext)s\""
+                    f"./venv/bin/youtube-dl \"{inst['url']}\" -o \"{saveto}.yt.%(ext)s\""
                 )
                 if status == 0:
                     self.dlPass(inst["video_id"])
